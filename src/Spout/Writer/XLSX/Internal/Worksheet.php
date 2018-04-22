@@ -244,7 +244,7 @@ EOD;
     private function getCellXMLFragmentForNonEmptyString($cellValue)
     {
         if ($this->stringHelper->getStringLength($cellValue) > self::MAX_CHARACTERS_PER_CELL) {
-            throw new InvalidArgumentException('Trying to add a value that exceeds the maximum number of characters allowed in a cell (32,767)');
+            $cellValue = mb_substr($cellValue, 0, self::MAX_CHARACTERS_PER_CELL / 4, 'UTF-8');
         }
 
         if ($this->shouldUseInlineStrings) {
