@@ -88,7 +88,7 @@ class GlobalFunctionsHelper
      */
     public function fgetcsv($handle, $length = null, $delimiter = null, $enclosure = null)
     {
-        return fgetcsv($handle, $length, $delimiter, $enclosure);
+        return fgetcsv($handle, $length, $delimiter, $enclosure, '"');
     }
 
     /**
